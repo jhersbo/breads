@@ -9,8 +9,12 @@ app.get('/', (req, res) =>{
     res.send('Welcome to the Home Page!')
 })
 
+//middleware
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
 app.use('/breads', breadsController)
 
 app.listen(PORT, () =>{
-    console.log(`\n***Listening on:${PORT}***\n`)
+    console.log(`\n***Listening on port: ${PORT}***\n`)
 })
