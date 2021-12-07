@@ -9,9 +9,12 @@ breads.get('/', (req, res) =>{
     })
 })
 
-breads.get('/:arrayIndex', (req, res) =>{
-    res.send(Bread[req.params.arrayIndex])
-})
+// SHOW
+breads.get('/:arrayIndex', (req, res) => {
+    res.render('Show', {
+      bread: Bread[req.params.arrayIndex]
+    })
+  })
 
 breads.get('*', (req, res) =>{
     res.send('404')

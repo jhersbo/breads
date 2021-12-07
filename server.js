@@ -9,7 +9,12 @@ app.get('/', (req, res) =>{
     res.send('Welcome to the Home Page!')
 })
 
+app.get('*', (req, res)=>{
+    res.send('404')
+})
+
 //middleware
+app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
